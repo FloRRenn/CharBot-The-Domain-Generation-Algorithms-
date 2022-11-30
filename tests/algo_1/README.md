@@ -27,9 +27,6 @@ This information was then carried forward to training by using a Grid Search Cro
 
 # Installation and Overview of Solution
 
-## Run on the Cloud
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/ryancollingwood/DGAClassifier&tutorial=quickstart.md)
-
 All you need is a Google account, run this repo in a light weight temporary cloud session.
 
 ## Installation
