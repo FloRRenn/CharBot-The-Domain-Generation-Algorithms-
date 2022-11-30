@@ -1,8 +1,5 @@
-import logging
 import pandas as pd
 from .load_model import load_model
-from src.logging import setup_logging
-
 
 def generate_domain(year: int, month: int, day: int) -> str:
     """
@@ -25,8 +22,6 @@ def generate_domain(year: int, month: int, day: int) -> str:
         day = ((day ^ (day << 13)) >> 19) ^ ((day & 0xFFFFFFFE) << 12)
         domain += chr(((year ^ month ^ day) % 25) + 97)
 
-    logging.debug(f"Generated Domain: {domain}")
-
     return domain
 
 
@@ -37,10 +32,6 @@ def test_model(filename = "models/trained.model"):
     :param filename:
     :return:
     """
-    setup_logging(logging.INFO)
-
-    logging.debug("test_model")
-    logging.debug(f"filename: {filename}")
 
     loaded_model = load_model(filename)
 
@@ -76,16 +67,9 @@ def test_model(filename = "models/trained.model"):
             if val:
                 blind_test.append(test_gen[j:i])
 
-    logging.debug(blind_test)
 
     test_df = pd.DataFrame(blind_test, columns=["domain"])
-
-    logging.debug("About to make predictions on test_df")
-
-    results = loaded_model.predict(test_df.values)
-
-    for i, result in enumerate(results):
-        logging.info(f"{blind_test[i]}: {result}")
+    print(loaded_model.predict(test_df.values))
 
 
 if __name__ == "__main__":

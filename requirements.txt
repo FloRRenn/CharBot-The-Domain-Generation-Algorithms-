@@ -1,0 +1,11 @@
+joblib
+numpy
+pandas
+pytest
+pytest-cov
+scikit-learn
+scipy
+sklearn
+Unidecode
+matplotlib
+seaborn

@@ -71,7 +71,7 @@ if __name__ == '__main__':
     
     benign_domain = "./dataset/benign_domains.txt"
     tld_domain = "./dataset/top_level_domains.txt"
-    output_file = "./dataset/malicious_domains.txt"
+    output_file = "./output/malicious_domains.txt"
     
     charBot = CharBot(benign_domain, tld_domain, output_file, seed)
     charBot.produce()
